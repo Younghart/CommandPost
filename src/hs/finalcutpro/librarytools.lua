@@ -51,6 +51,27 @@ function mod.test()
 		print(result)
 	end
 
+	--[[
+	for row in fcpLibrary:nrows("SELECT * FROM ZCATALOGROOTMD") do
+		local result = plist.binaryToTable(row["ZDICTIONARYDATA"])
+		print(result)
+	end
+	--]]
+
+	--[[
+	for row in fcpLibrary:nrows("SELECT * FROM Z_METADATA") do
+		local result = plist.binaryToTable(row["Z_PLIST"])
+		print(result)
+	end
+	--]]
+
+	--[[
+	for row in fcpLibrary:nrows("SELECT * FROM Z_MODELCACHE") do
+		local result = plist.binaryToTable(row["Z_CONTENT"])
+		print(result)
+	end
+	--]]
+
 end
 
 -------------------------------------------------------------------------------
