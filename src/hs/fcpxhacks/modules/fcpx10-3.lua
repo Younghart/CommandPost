@@ -595,6 +595,9 @@ function testingGround()
 	--------------------------------------------------------------------------------
 	console.clearConsole()
 
+	local librarytools = require("hs.finalcutpro.librarytools")
+	librarytools.test()
+
 end
 
 --------------------------------------------------------------------------------
