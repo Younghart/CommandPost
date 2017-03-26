@@ -21,7 +21,7 @@ function mod.new(action)
 	return o
 end
 
-function mod.isReducedTransparency()
+local function isReducedTransparency()
 	return screen.accessibilitySettings()["ReduceTransparency"]
 end
 
@@ -37,19 +37,19 @@ function selector:create()
 	-- Setup Chooser:
 	--------------------------------------------------------------------------------
 	self.chooser = chooser.new(self.action):bgDark(true)
+					:choices(self.choices)
 					:rightClickCallback(function() self.rightClickAction() end)
-					:choices(mod.choices)
 
 	--------------------------------------------------------------------------------
 	-- Allow for Reduce Transparency:
 	--------------------------------------------------------------------------------
-	mod.lastReducedTransparency = mod.isReducedTransparency()
-	if mod.lastReducedTransparency then
-		mod.mainChooser:fgColor(nil)
-								 :subTextColor(nil)
+	self.lastReducedTransparency = isReducedTransparency()
+	if self.lastReducedTransparency then
+		self.chooser:fgColor(nil)
+			:subTextColor(nil)
 	else
-		mod.mainChooser:fgColor(drawing.color.x11.snow)
-								 :subTextColor(drawing.color.x11.snow)
+		self.chooser:fgColor(drawing.color.x11.snow)
+			:subTextColor(drawing.color.x11.snow)
 
 	end	
 end
